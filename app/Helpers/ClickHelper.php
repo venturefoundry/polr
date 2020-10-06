@@ -3,11 +3,16 @@ namespace App\Helpers;
 use App\Models\Click;
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Throwable;
 
 class ClickHelper {
     static private function getCountry($ip) {
-        $country_iso = geoip()->getLocation($ip)->iso_code;
-        return $country_iso;
+        try {
+            $country_iso = geoip()->getLocation($ip)->iso_code;
+            return $country_iso;
+        } catch (Throwable $throwable) {
+            return '';
+        }
     }
 
     static private function getHost($url) {
