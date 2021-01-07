@@ -16,7 +16,7 @@ if (env('POLR_ALLOW_ACCT_CREATION')) {
 
 $app->get('/', ['as' => 'index', 'uses' => 'IndexController@showIndexPage']);
 $app->get('/logout', ['as' => 'logout', 'uses' => 'UserController@performLogoutUser']);
-$app->get('/login', ['as' => 'login', 'uses' => 'UserController@displayLoginPage']);
+//$app->get('/login', ['as' => 'login', 'uses' => 'UserController@displayLoginPage']);
 $app->get('/about-polr', ['as' => 'about', 'uses' => 'StaticPageController@displayAbout']);
 
 $app->get('/lost_password', ['as' => 'lost_password', 'uses' => 'UserController@displayLostPasswordPage']);
@@ -36,7 +36,7 @@ $app->get('/admin/stats/{short_url}', ['uses' => 'StatsController@displayStats']
 
 /* POST endpoints */
 
-$app->post('/login', ['as' => 'plogin', 'uses' => 'UserController@performLogin']);
+//$app->post('/login', ['as' => 'plogin', 'uses' => 'UserController@performLogin']);
 $app->post('/shorten', ['as' => 'pshorten', 'uses' => 'LinkController@performShorten']);
 $app->post('/lost_password', ['as' => 'plost_password', 'uses' => 'UserController@performSendPasswordResetCode']);
 $app->post('/reset_password/{username}/{recovery_key}', ['as' => 'preset_password', 'uses' => 'UserController@performPasswordReset']);
