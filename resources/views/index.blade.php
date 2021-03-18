@@ -7,6 +7,7 @@
 @section('content')
 <h1 class='title'>{{env('APP_NAME')}}</h1>
 
+@if(!empty(session('username')))
 <form method='POST' action='/shorten' role='form'>
     <input type='url' autocomplete='off'
         class='form-control long-link-input' placeholder='http://' name='link-url' />
@@ -41,6 +42,7 @@
     <a href='#' class='btn btn-warning' id='show-link-options'>Link Options</a>
     <input type="hidden" name='_token' value='{{csrf_token()}}' />
 </form>
+@endif
 
 <div id='tips' class='text-muted tips'>
     <i class='fa fa-spinner'></i> Loading Tips...
